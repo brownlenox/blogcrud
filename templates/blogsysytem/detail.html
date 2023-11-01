@@ -1,0 +1,14 @@
+{% extends "blogsysytem/base.html" %}
+{% block title%}Detail {% endblock title%}
+
+{% block content%}
+    <a href="{% url 'index' %}">back</a>
+    <h2>Detail page</h2>
+    <hr>
+    <h4>{{ post.title }}</h4>
+    <p>{{post.body}}</p>
+    <p>This post was created on {{ post.created_on}}  at  {{ post.created_at}} by {{ post.author}}</p>
+    <hr>
+    <a href="{% url 'update' pk=post.pk %}">Update</a>
+    <a href="{% url 'delete' pk=post.pk %}">Delete</a>
+{% endblock content %}

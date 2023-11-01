@@ -1,0 +1,15 @@
+{% extends "blogsysytem/base.html" %}
+{% block title%}Update {% endblock title%}
+
+{% block content%}
+    <h2>Update</h2>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Title:</label><br>
+        <input value={{ post.title}} name="title"><br>
+        <label>Body:</label><br>
+        <textarea name="body">{{ post.body }}</textarea>
+        <button type="submit"> Update</button>
+    </form>
+{% endblock content %}

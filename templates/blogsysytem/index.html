@@ -1,0 +1,20 @@
+{% extends "blogsysytem/base.html" %}
+{% block title%}Home {% endblock title%}
+
+{% block content%}
+    <h1>Welcome to my second blog</h1>
+    <p>To create a new blog <a href={% url 'create' %}>Create a new blog</a></p>
+    <hr>
+    <div class="container">
+    {% if posts %}
+    {% for post in posts %}
+        <h4>{{ post.title}}</h4>
+        <p>{{ post.body }}</p>
+        <a href="{% url 'detail' pk=post.pk %}">View the detail page</a>
+    {% endfor %}
+    {% else %}
+        <p>Oops!! No posts come back another time</p>
+    
+    {% endif %}
+    </div>
+{% endblock content %}
